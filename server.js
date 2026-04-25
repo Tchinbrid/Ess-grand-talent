@@ -12,8 +12,8 @@ app.get('/', (req, res) => {
 });
 
 // Page confirmation vote
-app.get('/vote-confirme.html', (req, res) => {
-  res.sendFile(path.join(__dirname, 'vote-confirme.html'));
+app.get('/confirmation', (req, res) => {
+  res.sendFile(path.join(__dirname, 'confirmation.html'));
 });
 
 // ── CONFIG ──
