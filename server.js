@@ -12,7 +12,7 @@ app.use(express.static('public'));
 const SUPABASE_URL = 'https://mdxfddbropjwfdvllelc.supabase.co';
 const SUPABASE_KEY = process.env.SUPABASE_KEY;
 const MONETBIL_KEY = process.env.MONETBIL_KEY;
-const BASE_URL     = process.env.BASE_URL || 'http://localhost:3000';
+const BASE_URL     = process.env.BASE_URL || 'https://ess-grand-talent-1.onrender.com';
 
 const supabaseHeaders = {
   'apikey': SUPABASE_KEY,
