@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
 
 // Page confirmation vote
 app.get('/vote-confirme.html', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'vote-confirme.html'));
+  res.sendFile(path.join(__dirname, 'vote-confirme.html'));
 });
 
 // ── CONFIG ──
