@@ -6,6 +6,7 @@ const path = require('path');
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(express.static('.'));
 app.use(express.static('public'));
 
 // ── CONFIG ──
@@ -154,3 +155,4 @@ app.get('/api/vote-status/:id', async (req, res) => {
 // ── START ──
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Serveur ESS Grand Talent actif sur le port ${PORT}`));
+        
