@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vote confirmé — ESS Grand Talent</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:#080808;color:#f0e8d8;font-family:'Times New Roman',Times,serif;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+    .card{background:#141414;border:1px solid rgba(201,168,76,.2);padding:48px 40px;max-width:440px;width:100%;text-align:center}
+    .icon{font-size:3rem;margin-bottom:20px}
+    h1{font-size:1.6rem;font-weight:400;color:#c9a84c;margin-bottom:12px}
+    p{font-size:0.8rem;line-height:2;color:#7a7060;margin-bottom:24px}
+    .btn{display:inline-block;background:#c9a84c;color:#080808;text-decoration:none;font-size:0.7rem;letter-spacing:.15em;text-transform:uppercase;padding:14px 36px;font-weight:600}
+    .ref{font-size:0.55rem;letter-spacing:.12em;color:#7a6030;margin-top:20px}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="icon" id="icon">⏳</div>
+    <h1 id="titre">Vérification du paiement...</h1>
+    <p id="message">Veuillez patienter pendant que nous confirmons votre vote.</p>
+    <a class="btn" href="/">Retour au site</a>
+    <p class="ref" id="ref-display"></p>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const ref = params.get('ref');
+    if (ref) {
+      document.getElementById('ref-display').textContent = 'Référence : ' + ref;
+      // Vérifier le statut
+      fetch('/api/vote-status/' + ref)
+        .then(r => r.json())
+        .then(data => {
+          if (data.statut === 'confirme') {
+            document.getElementById('icon').textContent = '✅';
+            document.getElementById('titre').textContent = 'Vote confirmé !';
+            document.getElementById('message').textContent = 'Merci ! Votre vote a bien été enregistré. Bonne chance à votre candidat favori !';
+          } else if (data.statut === 'echec') {
+            document.getElementById('icon').textContent = '❌';
+            document.getElementById('titre').textContent = 'Paiement échoué';
+            document.getElementById('message').textContent = 'Le paiement n\'a pas abouti. Veuillez réessayer.';
+          } else {
+            document.getElementById('icon').textContent = '⏳';
+            document.getElementById('titre').textContent = 'En attente de confirmation';
+            document.getElementById('message').textContent = 'Votre paiement est en cours de traitement. Vérifiez votre téléphone et confirmez le paiement Mobile Money.';
+          }
+        })
+        .catch(() => {
+          document.getElementById('message').textContent = 'Impossible de vérifier le statut. Vérifiez votre téléphone.';
+        });
+    }
+  </script>
+</body>
+</html>
