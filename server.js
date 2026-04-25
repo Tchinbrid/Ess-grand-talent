@@ -6,8 +6,12 @@ const path = require('path');
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.use(express.static('.'));
 app.use(express.static('public'));
+
+// Route principale — envoie index.html
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 // ── CONFIG ──
 const SUPABASE_URL = 'https://mdxfddbropjwfdvllelc.supabase.co';
@@ -155,4 +159,4 @@ app.get('/api/vote-status/:id', async (req, res) => {
 // ── START ──
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Serveur ESS Grand Talent actif sur le port ${PORT}`));
-        
+  
