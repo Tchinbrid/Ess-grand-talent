@@ -21,7 +21,7 @@
     .drawer-overlay.open{display:block}
     .drawer{position:fixed;top:0;right:0;bottom:0;width:min(290px,82vw);background:var(--deep);border-left:1px solid rgba(201,168,76,0.15);z-index:300;transform:translateX(100%);transition:transform .3s ease;display:flex;flex-direction:column;padding:70px 0 40px}
     .drawer.open{transform:translateX(0)}
-    .drawer-item{text-decoration:none;font-size:0.85rem;letter-spacing:0.1em;color:var(--muted);padding:18px 28px;border-bottom:1px solid rgba(201,168,76,0.07);display:block;transition:color .2s}
+    .drawer-item{text-decoration:none;font-size:0.85rem;letter-spacing:0.1em;color:var(--muted);padding:18px 28px;border-bottom:1px solid rgba(201,168,76,0.07);display:block}
     .drawer-item:hover{color:var(--gold)}
     .page{display:none;position:relative;z-index:1}
     .page.active{display:block}
@@ -50,7 +50,7 @@
     .card-sub{font-size:0.58rem;color:var(--muted);margin-top:6px;line-height:1.8}
     .card-sub strong{color:var(--gold)}
     .vote-block{text-align:center}
-    .btn-vote{display:inline-block;background:var(--gold);color:var(--black);font-size:0.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;padding:16px 48px;border:none;cursor:pointer}
+    .btn-vote{display:inline-block;background:var(--gold);color:var(--black);font-size:0.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;padding:16px 48px;border:none;cursor:pointer;font-family:'Times New Roman',Times,serif}
     .vote-note{font-size:0.52rem;color:var(--muted);margin-top:10px}
     .contact-block{background:var(--surface);border:1px solid rgba(201,168,76,.12);padding:26px 22px}
     .contact-nums{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
@@ -64,14 +64,17 @@
     .candidate-card{background:var(--surface);border-left:3px solid transparent;padding:14px 16px;display:flex;align-items:center;gap:14px;margin-bottom:2px}
     .candidate-card:hover{border-left-color:var(--gold)}
     .cand-id{font-size:1.3rem;color:var(--gold-dim);width:36px;flex-shrink:0}
-    .cand-avatar{width:48px;height:48px;border-radius:50%;overflow:hidden;border:1px solid rgba(201,168,76,.3);flex-shrink:0}
+    .cand-avatar{width:52px;height:52px;border-radius:50%;overflow:hidden;border:1px solid rgba(201,168,76,.3);flex-shrink:0}
     .cand-avatar img{width:100%;height:100%;object-fit:cover}
     .cand-info{flex:1}
     .cand-name{font-size:1rem;color:var(--text)}
     .cand-niveau{font-size:0.5rem;color:var(--muted);margin-top:2px}
     .cand-cat{font-size:0.5rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-top:2px}
-    .vote-note-top{background:rgba(201,168,76,.06);border:1px solid rgba(201,168,76,.15);padding:13px 16px;font-size:0.6rem;color:var(--muted);line-height:1.9;margin-bottom:16px}
+    .vote-note-top{background:rgba(201,168,76,.06);border:1px solid rgba(201,168,76,.15);padding:16px;font-size:0.62rem;color:var(--muted);line-height:2;margin-bottom:16px}
     .vote-note-top strong{color:var(--gold)}
+    .paiement-box{background:var(--surface2);border:1px solid rgba(201,168,76,.3);padding:16px 20px;margin-bottom:16px;text-align:center}
+    .paiement-numero{font-size:1.6rem;color:var(--gold);letter-spacing:.08em}
+    .paiement-nom{font-size:0.65rem;color:var(--muted);margin-top:4px;letter-spacing:.1em;text-transform:uppercase}
     .vote-list{display:flex;flex-direction:column;gap:2px}
     .vote-row{background:var(--surface);padding:14px 16px;display:flex;align-items:center;gap:12px}
     .vote-count{font-size:1rem;color:var(--text);width:28px;text-align:right;flex-shrink:0}
@@ -79,14 +82,16 @@
     .vote-btn:hover{background:var(--gold);color:var(--black)}
     .modal-overlay{display:none;position:fixed;inset:0;z-index:500;background:rgba(0,0,0,0.88);align-items:center;justify-content:center;padding:20px}
     .modal-overlay.open{display:flex}
-    .modal{background:var(--surface);border:1px solid rgba(201,168,76,.25);padding:36px 28px;max-width:420px;width:100%;position:relative}
+    .modal{background:var(--surface);border:1px solid rgba(201,168,76,.25);padding:32px 24px;max-width:420px;width:100%;position:relative;max-height:90vh;overflow-y:auto}
     .modal-close{position:absolute;top:14px;right:18px;background:none;border:none;color:var(--muted);font-size:1.3rem;cursor:pointer}
-    .modal-title{font-size:1.2rem;font-weight:400;color:var(--gold);margin-bottom:4px}
-    .modal-candidat{font-size:1rem;color:var(--text);margin-bottom:20px;font-style:italic}
-    .form-label{display:block;font-size:0.52rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:7px}
-    .form-input{width:100%;background:var(--deep);border:1px solid rgba(201,168,76,.2);color:var(--text);padding:12px 14px;font-family:'Times New Roman',Times,serif;font-size:0.85rem;outline:none;margin-bottom:16px}
-    .form-submit{width:100%;background:var(--gold);color:var(--black);border:none;padding:15px;font-family:'Times New Roman',Times,serif;font-size:0.7rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;cursor:pointer}
-    .form-note{font-size:0.52rem;color:var(--muted);margin-bottom:18px;line-height:1.8}
+    .modal-title{font-size:1.1rem;font-weight:400;color:var(--gold);margin-bottom:4px}
+    .modal-candidat{font-size:1rem;color:var(--text);margin-bottom:16px;font-style:italic}
+    .modal-step{background:var(--deep);border-left:3px solid var(--gold);padding:12px 14px;margin-bottom:16px;font-size:0.65rem;line-height:1.9;color:var(--muted)}
+    .modal-step strong{color:var(--text);display:block;margin-bottom:4px}
+    .modal-numero{font-size:1.4rem;color:var(--gold);letter-spacing:.08em;display:block;margin:6px 0}
+    .form-label{display:block;font-size:0.52rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:7px;margin-top:14px}
+    .form-input{width:100%;background:var(--deep);border:1px solid rgba(201,168,76,.2);color:var(--text);padding:12px 14px;font-family:'Times New Roman',Times,serif;font-size:0.85rem;outline:none}
+    .form-submit{width:100%;background:var(--gold);color:var(--black);border:none;padding:15px;font-family:'Times New Roman',Times,serif;font-size:0.7rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;cursor:pointer;margin-top:16px}
     footer{text-align:center;padding:22px 20px;border-top:1px solid rgba(201,168,76,.08)}
     .footer-name{font-size:.95rem;color:var(--gold-dim);margin-bottom:5px}
     .footer-copy{font-size:0.5rem;color:var(--muted)}
@@ -143,7 +148,8 @@
       </div>
       <div class="info-card">
         <div class="card-label">Date limite des votes</div>
-        <div class="card-sub" style="font-size:.7rem;color:var(--text);margin-top:8px">A confirmer</div>
+        <div class="card-value" style="font-size:1.3rem">1er Aout</div>
+        <div class="card-sub">Votez avant la cloture !</div>
       </div>
       <div class="info-card full">
         <div class="card-label">Le concours</div>
@@ -189,7 +195,7 @@
       <div class="candidate-card">
         <div class="cand-id">002</div>
         <div class="cand-avatar"><img src="https://mdxfddbropjwfdvllelc.supabase.co/storage/v1/object/public/images/Murielle.png" alt="Murielle"/></div>
-        <div class="cand-info"><div class="cand-name">Lema Modo Murielle Lorna</div><div class="cand-niveau">IDE 2 — Campus Messa</div><div class="cand-cat">Art — Art Abstrait &amp; Peinture</div></div>
+        <div class="cand-info"><div class="cand-name">Lema Modo Murielle Lorna</div><div class="cand-niveau">IDE 2 — Campus Messa</div><div class="cand-cat">Art — Art Abstrait et Peinture</div></div>
       </div>
       <div class="candidate-card">
         <div class="cand-id">004</div>
@@ -234,9 +240,20 @@
   <div class="container">
     <div>
       <h2 class="page-title"><em>Vote</em></h2>
-      <p class="page-subtitle">Choisissez votre candidat et votez</p>
+      <p class="page-subtitle">Choisissez votre candidat et votez avant le 1er Aout</p>
     </div>
-    <div class="vote-note-top"><strong>Cagnotte : 50 000 FCFA</strong> · Minimum 100 FCFA par vote · Vous pouvez voter plusieurs fois</div>
+    <div class="vote-note-top">
+      <strong>Comment voter :</strong><br/>
+      1. Choisissez votre candidat et cliquez sur "Vote"<br/>
+      2. Envoyez le montant (min. 100 FCFA) au <strong>695 290 162</strong> (Tchinda Fomare) via Mobile Money<br/>
+      3. Entrez votre numero de transaction pour confirmer le vote<br/>
+      <strong>Cagnotte : 50 000 FCFA</strong> · Date limite : <strong>1er Aout</strong>
+    </div>
+    <div class="paiement-box">
+      <div class="paiement-nom">Numero de paiement Mobile Money</div>
+      <div class="paiement-numero">695 290 162</div>
+      <div class="paiement-nom">Tchinda Fomare</div>
+    </div>
     <div class="vote-list">
       <div class="vote-row">
         <div class="cand-id">001</div>
@@ -319,7 +336,7 @@
         <div class="contact-pill"><a href="tel:694738988">694 738 988</a></div>
       </div>
     </div>
-    <div class="info-card">
+    <div class="info-card" style="background:var(--surface);padding:24px 20px;position:relative;margin-top:0">
       <div class="card-label">Organisateur</div>
       <div class="card-sub" style="font-size:.68rem;line-height:2">
         Bureau de l'Amicale ESS-UCAC<br/>
@@ -337,12 +354,29 @@
     <div class="modal-title">Voter pour</div>
     <div class="modal-candidat" id="modal-nom"></div>
     <input type="hidden" id="modal-id"/>
-    <label class="form-label">Numero Mobile Money</label>
+
+    <div class="modal-step">
+      <strong>Etape 1 — Effectuez le paiement</strong>
+      Envoyez minimum <strong style="color:var(--gold)">100 FCFA</strong> via Mobile Money au :<br/>
+      <span class="modal-numero">695 290 162</span>
+      Nom : <strong style="color:var(--text)">Tchinda Fomare</strong>
+    </div>
+
+    <div class="modal-step">
+      <strong>Etape 2 — Entrez votre numero de transaction</strong>
+      Apres le paiement, relevez le numero de transaction recu par SMS et entrez-le ci-dessous.
+    </div>
+
+    <label class="form-label">Votre numero de telephone</label>
     <input type="tel" class="form-input" id="modal-tel" placeholder="Ex: 690000000"/>
-    <label class="form-label">Montant (FCFA)</label>
+
+    <label class="form-label">Montant envoye (FCFA)</label>
     <input type="number" class="form-input" id="modal-montant" min="100" placeholder="Minimum 100 FCFA"/>
-    <p class="form-note">Un prompt de paiement sera envoye sur votre telephone apres confirmation.</p>
-    <button class="form-submit" id="btn-payer" onclick="soumettreVote()">Confirmer et payer</button>
+
+    <label class="form-label">Numero de transaction Mobile Money</label>
+    <input type="text" class="form-input" id="modal-transaction" placeholder="Ex: CI240725.1234.A12345"/>
+
+    <button class="form-submit" id="btn-confirmer" onclick="confirmerVote()">Confirmer mon vote</button>
   </div>
 </div>
 
@@ -353,6 +387,7 @@
 
 <script>
 const API = 'https://ess-grand-talent-1.onrender.com';
+
 function showPage(p) {
   document.querySelectorAll('.page').forEach(x => x.classList.remove('active'));
   document.getElementById('page-'+p).classList.add('active');
@@ -371,38 +406,51 @@ function ouvrirVote(id, nom) {
   document.getElementById('modal-nom').textContent = nom;
   document.getElementById('modal-tel').value = '';
   document.getElementById('modal-montant').value = '';
+  document.getElementById('modal-transaction').value = '';
   document.getElementById('vote-modal').classList.add('open');
 }
 function fermerVote() {
   document.getElementById('vote-modal').classList.remove('open');
 }
-async function soumettreVote() {
+async function confirmerVote() {
   var id = document.getElementById('modal-id').value;
   var tel = document.getElementById('modal-tel').value.trim();
   var montant = parseInt(document.getElementById('modal-montant').value);
-  var btn = document.getElementById('btn-payer');
-  if (!tel || tel.length < 9) { alert('Entrez un numero valide.'); return; }
-  if (!montant || montant < 100) { alert('Minimum 100 FCFA.'); return; }
-  btn.textContent = 'Traitement...';
+  var transaction = document.getElementById('modal-transaction').value.trim();
+  var btn = document.getElementById('btn-confirmer');
+
+  if (!tel || tel.length < 9) { alert('Entrez un numero de telephone valide.'); return; }
+  if (!montant || montant < 100) { alert('Le montant minimum est de 100 FCFA.'); return; }
+  if (!transaction) { alert('Entrez votre numero de transaction Mobile Money.'); return; }
+
+  btn.textContent = 'Enregistrement...';
   btn.disabled = true;
+
   try {
     var res = await fetch(API + '/api/initier-vote', {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({candidat_id:id, telephone:tel, montant:montant})
+      body: JSON.stringify({
+        candidat_id: id,
+        telephone: tel,
+        montant: montant,
+        transaction_id: transaction,
+        statut: 'confirme'
+      })
     });
     var data = await res.json();
-    if (data.success) {
+    if (data && data[0] && data[0].id) {
       fermerVote();
-      alert('Paiement initie ! Verifiez votre telephone (' + tel + ') et confirmez le paiement de ' + montant + ' FCFA.');
+      alert('Vote enregistre avec succes ! Merci de votre participation.');
       chargerVotes();
     } else {
-      alert('Erreur : ' + (data.error || 'Paiement impossible'));
+      alert('Erreur lors de l'enregistrement. Reessayez.');
     }
   } catch(e) {
     alert('Erreur de connexion. Reessayez.');
   }
-  btn.textContent = 'Confirmer et payer';
+
+  btn.textContent = 'Confirmer mon vote';
   btn.disabled = false;
 }
 async function chargerVotes() {
