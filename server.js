@@ -63,37 +63,22 @@ app.post('/api/initier-vote', async (req, res) => {
   }
 
   try {
-    // Crée un enregistrement de vote en attente
+    const { transaction_id, statut } = req.body;
+
+    // Enregistre le vote avec le numero de transaction fourni
     const { data: vote } = await axios.post(
       `${SUPABASE_URL}/rest/v1/votes`,
-      { candidat_id, telephone, montant, statut: 'en_attente' },
+      {
+        candidat_id,
+        telephone,
+        montant,
+        statut: statut || 'confirme',
+        transaction_id: transaction_id || null
+      },
       { headers: supabaseHeaders }
     );
 
-    const voteId = vote[0].id;
-
-    // Lance le paiement Monetbil
-    const monetbilRes = await axios.post(
-      'https://api.monetbil.com/payment/v1/placePayment',
-      null,
-      {
-        params: {
-          service: MONETBIL_KEY,
-          phonenumber: telephone,
-          amount: montant,
-          payment_ref: voteId,
-          notify_url: `${BASE_URL}/api/monetbil-webhook`,
-          return_url: `${BASE_URL}/vote-confirme.html?ref=${voteId}`,
-        }
-      }
-    );
-
-    res.json({
-      success: true,
-      vote_id: voteId,
-      payment_url: monetbilRes.data.payment_url || null,
-      message: `Une demande de paiement de ${montant} FCFA a été envoyée au ${telephone}`
-    });
+    res.json(vote);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
