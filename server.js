@@ -6,14 +6,18 @@ const path = require('path');
 const app = express();
 app.use(cors());
 app.use(express.json());
-// Route principale — index.html
+// Routes HTML
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
-
-// Page confirmation vote
-app.get('/confirmation', (req, res) => {
-  res.sendFile(path.join(__dirname, 'confirmation.html'));
+app.get('/categories.html', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'categories.html'));
+});
+app.get('/vote.html', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'vote.html'));
+});
+app.get('/contact.html', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'contact.html'));
 });
 
 // ── CONFIG ──
