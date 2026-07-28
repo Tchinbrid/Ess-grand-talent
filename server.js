@@ -123,7 +123,7 @@ app.get('/api/resultats', async (req, res) => {
         cat_label: c.cat_label,
         niveau: c.niveau,
         photo_url: c.photo_url,
-        nb_votes: c.votes ? c.votes.length : 0,
+        nb_votes: c.votes ? c.votes.reduce((s, v) => s + v.montant, 0) : 0,
         montant_total: c.votes ? c.votes.reduce((s, v) => s + v.montant, 0) : 0
       }))
       .sort((a, b) => b.nb_votes - a.nb_votes);
